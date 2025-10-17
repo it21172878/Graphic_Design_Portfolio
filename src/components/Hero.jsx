@@ -25,15 +25,15 @@ const Hero = () => {
   return (
     // <div className=" pb-4 lg:mb-36">
     // <div className=" pb-4 lg:mb-36 relative h-screen flex items-center justify-center text-white overflow-hidden flex-col ">
-    <div className="pb-4 lg:mb-36 px-4 sm:px-6 lg:px-3">
-      <div className="flex flex-wrap lg:flex-row-reverse">
+    <div className="pb-8 lg:pb-4 lg:mb-36">
+      <div className="flex flex-wrap lg:flex-row-reverse items-center">
         <div className="w-full lg:w-1/2">
-          <div className="flex justify-center lg:p-8 p-4">
+          <div className="flex justify-center lg:p-8 p-4 sm:p-6">
             <motion.img
               src={profilePic}
               alt="Dilanka Prasad"
               // className="border border-stone-900 rounded-3xl"
-              className="w-full max-w-sm sm:max-w-md md:max-w-lg lg:max-w-xl"
+              className="w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg"
               initial={{ x: 100, opacity: 0 }}
               whileInView={{ x: 0, opacity: 1 }}
               viewport={{ once: true }}
@@ -47,21 +47,24 @@ const Hero = () => {
             whileInView="visible"
             viewport={{ once: true }}
             variants={containerVariants}
-            className="flex flex-col items-center lg:items-start mt-6 lg:mt-10 px-4 sm:px-6"
+            className="flex flex-col items-center lg:items-start px-6 sm:px-8 lg:px-4"
           >
             <motion.h2
               variants={childVariants}
-              className="pb-2 text-3xl sm:text-4xl md:text-5xl lg:text-7xl xl:text-8xl tracking-tighter text-center lg:text-left"
+              className="pb-3 text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl tracking-tighter text-center lg:text-left w-full"
             >
               Dilanka Liyanagama
             </motion.h2>
             <motion.span
               variants={childVariants}
-              className="bg-gradient-to-r from-stone-300 to-stone-600 bg-clip-text text-2xl sm:text-3xl tracking-tight text-transparent text-center lg:text-left"
+              className="bg-gradient-to-r from-stone-300 to-stone-600 bg-clip-text text-xl sm:text-2xl md:text-3xl tracking-tight text-transparent text-center lg:text-left w-full mb-4"
             >
               Graphic designer
             </motion.span>
-            <motion.p className="my-2 max-w-lg py-4 sm:py-6 text-base sm:text-lg md:text-xl leading-relaxed tracking-tighter text-center lg:text-left">
+            <motion.p
+              variants={childVariants}
+              className="my-3 max-w-xl py-2 sm:py-4 text-sm sm:text-base md:text-lg lg:text-xl leading-relaxed tracking-tight text-center lg:text-left w-full"
+            >
               {HERO_CONTENT}
             </motion.p>
 
@@ -72,7 +75,7 @@ const Hero = () => {
               target="_blank"
               rel="noopener noreferrer"
               download
-              className="group relative inline-flex items-center gap-2 sm:gap-3 px-6 sm:px-8 md:px-10 py-3 sm:py-4 mb-6 sm:mb-10 overflow-hidden rounded-lg bg-gradient-to-br from-stone-900 via-zinc-900 to-black border border-stone-700/50 backdrop-blur-sm transition-all duration-500 hover:border-stone-500/80 hover:shadow-2xl hover:shadow-stone-500/20"
+              className="group relative inline-flex items-center justify-center gap-2 sm:gap-3 px-6 sm:px-8 md:px-10 py-3 sm:py-3.5 md:py-4 mb-8 sm:mb-10 overflow-hidden rounded-lg bg-gradient-to-br from-stone-900 via-zinc-900 to-black border border-stone-700/50 backdrop-blur-sm transition-all duration-500 hover:border-stone-500/80 hover:shadow-2xl hover:shadow-stone-500/20 w-fit mx-auto lg:mx-0"
             >
               {/* Elegant gold shimmer overlay on hover */}
               <span className="absolute inset-0 bg-gradient-to-r from-transparent via-amber-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"></span>
