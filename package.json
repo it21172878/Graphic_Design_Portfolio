@@ -1,0 +1,22 @@
+{
+  "name": "graphic_design_portfolio",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@tailwindcss/vite": "^4.1.14",
+    "framer-motion": "^12.23.24",
+    "preact": "^10.27.2",
+    "react-icons": "^5.5.0",
+    "tailwindcss": "^4.1.14"
+  },
+  "devDependencies": {
+    "@preact/preset-vite": "^2.10.2",
+    "vite": "^7.1.7"
+  }
+}
