@@ -1,6 +1,7 @@
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import Technologies from "./components/Technologies";
+import Skills from "./components/Skills";
 import Projects from "./components/Projects";
 import Experience from "./components/Experience";
 import Contact from "./components/Contact";
@@ -22,6 +23,7 @@ const App = () => {
         <Navbar />
         <Hero />
         <Technologies />
+        <Skills />
         <Projects />
         <Experience />
         <Contact />
