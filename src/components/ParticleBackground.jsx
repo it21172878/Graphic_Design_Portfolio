@@ -13,8 +13,16 @@ const ParticleBackground = ({ className = "" }) => {
   const particlesRef = useRef([]);
   const mouseRef = useRef({ x: null, y: null });
   const rafRef = useRef(null);
+  // Detect if device is touch-enabled using pointer type
+  const isTouchDevice = useRef(false);
 
   useEffect(() => {
+    if (window.matchMedia) {
+      isTouchDevice.current = window.matchMedia("(pointer: coarse)").matches;
+    } else {
+      isTouchDevice.current =
+        "ontouchstart" in window || navigator.maxTouchPoints > 0;
+    }
     const canvas = canvasRef.current;
     if (!canvas) return;
 
@@ -150,9 +158,10 @@ const ParticleBackground = ({ className = "" }) => {
     };
 
     const handleClick = (e) => {
+      // Only allow click-to-add-particles on non-touch devices
+      if (isTouchDevice.current) return;
       const clickX = e.clientX;
       const clickY = e.clientY;
-
       // Add 5-8 new particles at click location
       const newParticleCount = Math.floor(Math.random() * 4) + 5;
       for (let i = 0; i < newParticleCount; i++) {
@@ -162,7 +171,6 @@ const ParticleBackground = ({ className = "" }) => {
           new Particle(clickX + offsetX, clickY + offsetY)
         );
       }
-
       // Limit total particles
       if (particlesRef.current.length > 200) {
         particlesRef.current = particlesRef.current.slice(-200);
