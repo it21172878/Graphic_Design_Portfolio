@@ -15,9 +15,15 @@ const Projects = () => {
 
   return (
     <section id="projects" className="py-16 sm:py-20 lg:py-24">
-      <h2 className="text-center text-2xl sm:text-3xl font-semibold text-stone-100 mb-8">
+      <motion.h2
+        initial={{ opacity: 0, y: 40, scale: 0.97 }}
+        whileInView={{ opacity: 1, y: 0, scale: 1 }}
+        transition={{ duration: 0.7, ease: "easeOut" }}
+        viewport={{ once: true }}
+        className="text-center text-2xl sm:text-3xl font-semibold text-stone-100 mb-8"
+      >
         Projects
-      </h2>
+      </motion.h2>
 
       {/* Filter buttons: single segmented control with one border */}
       <div className="max-w-2xl mx-auto mb-10">
@@ -26,10 +32,10 @@ const Projects = () => {
             <button
               key={cat}
               onClick={() => setActive(cat)}
-              className={`w-full px-4 py-2 sm:px-6 sm:py-3 text-sm sm:text-base font-bold transition-all duration-200 focus:z-10 focus:outline-none border border-stone-700
+              className={`w-full px-4 py-2 sm:px-6 sm:py-3 text-sm sm:text-base font-bold transition-all duration-200 focus:z-10 focus:outline-none border border-stone-700 cursor-pointer
                 ${
                   active === cat
-                    ? "text-amber-300 bg-stone-800/90 shadow-md scale-105 border-amber-400"
+                    ? "text-amber-300 bg-stone-800/90 shadow-md border-amber-400"
                     : "text-stone-200 bg-transparent hover:bg-stone-800/60 hover:text-amber-200"
                 }
                 ${idx === 0 ? "rounded-l-full" : ""}

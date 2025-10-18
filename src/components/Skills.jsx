@@ -29,11 +29,11 @@ const Skills = () => {
   return (
     <section id="skills" className="pb-16 sm:pb-20 lg:pb-24">
       <motion.h2
-        whileInView={{ opacity: 1, y: 0 }}
-        initial={{ opacity: 0, y: -30 }}
-        transition={{ duration: 0.8 }}
+        initial={{ opacity: 0, y: 40, scale: 0.97 }}
+        whileInView={{ opacity: 1, y: 0, scale: 1 }}
+        transition={{ duration: 0.7, ease: "easeOut" }}
         viewport={{ once: true }}
-        className="mb-8 sm:mb-10 text-center text-2xl sm:text-3xl font-semibold"
+        className="text-center text-2xl sm:text-3xl font-semibold text-stone-100 mb-8"
       >
         Skills
       </motion.h2>

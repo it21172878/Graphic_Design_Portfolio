@@ -78,7 +78,7 @@ export const PROJECTS = [
     image: project4,
     description:
       "Designed a modern and appealing logo for M Eatery, a food restaurant in Bangladesh. The logo reflects the brand’s friendly and inviting identity, making it memorable and suitable for both signage and digital platforms.",
-    colorPalette: ["35b674", "2bace9", "ffffff"],
+    colorPalette: ["35b674", "ffffff"],
     category: "Branding",
   },
   {
