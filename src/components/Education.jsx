@@ -1,20 +1,20 @@
-import { EXPERIENCES } from "../constants";
+import { EDUCATIONS } from "../constants";
 import { motion } from "framer-motion";
 
-const Experience = () => {
+const Education = () => {
   return (
     <div className="pb-4">
       <motion.h2
-        whileInView={{ opacity: 1, y: 0 }}
-        initial={{ opacity: 0, y: -100 }}
-        transition={{ duration: 1.5 }}
+        initial={{ opacity: 0, y: 40, scale: 0.97 }}
+        whileInView={{ opacity: 1, y: 0, scale: 1 }}
+        transition={{ duration: 0.7, ease: "easeOut" }}
         viewport={{ once: true }}
         className="my-20 text-center text-4xl"
       >
-        Experiences
-      </motion.h2>{" "}
+        Education
+      </motion.h2>
       <div>
-        {EXPERIENCES.map((experience, index) => (
+        {EDUCATIONS.map((education, index) => (
           <div key={index} className="mb-8 flex flex-wrap lg:justify-center">
             <motion.div
               whileInView={{ opacity: 1, x: 0 }}
@@ -23,7 +23,7 @@ const Experience = () => {
               viewport={{ once: true }}
               className="w-full lg:w-1/4"
             >
-              <p className="mb-2 text-sm text-stone-400"> {experience.year}</p>{" "}
+              <p className="mb-2 text-sm text-stone-400">{education.year}</p>
             </motion.div>
             <motion.div
               whileInView={{ opacity: 1, x: 0 }}
@@ -33,21 +33,12 @@ const Experience = () => {
               className="w-full max-w-xl lg:w-3/4"
             >
               <h3 className="mb-2 font-semibold">
-                {experience.role} -{""}
+                {education.title} -{" "}
                 <span className="text-sm text-stone-500">
-                  {" "}
-                  {experience.company}
+                  {education.institute}
                 </span>
               </h3>
-              <p className=" mb-4 text-stone-400">{experience.description}</p>
-              {experience.technologies.map((tech, index) => (
-                <span
-                  className=" mr-2 mt-4 rounded bg-stone-900 px-2 py-1 text-sm font-medium text-stone-300"
-                  key={index}
-                >
-                  {tech}
-                </span>
-              ))}
+              <p className="mb-4 text-stone-400">{education.description}</p>
             </motion.div>
           </div>
         ))}
@@ -56,4 +47,4 @@ const Experience = () => {
   );
 };
 
-export default Experience;
+export default Education;

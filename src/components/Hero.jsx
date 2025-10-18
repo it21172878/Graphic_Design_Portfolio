@@ -75,6 +75,15 @@ const Hero = () => {
               target="_blank"
               rel="noopener noreferrer"
               download
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{
+                type: "spring",
+                stiffness: 80,
+                damping: 18,
+                mass: 0.7,
+              }}
               className="group relative inline-flex items-center justify-center gap-2 sm:gap-3 px-6 sm:px-8 md:px-10 py-3 sm:py-3.5 md:py-4 mb-8 sm:mb-10 overflow-hidden rounded-lg bg-gradient-to-br from-stone-900 via-zinc-900 to-black border border-stone-700/50 backdrop-blur-sm transition-all duration-500 hover:border-stone-500/80 hover:shadow-2xl hover:shadow-stone-500/20 w-fit mx-auto lg:mx-0"
             >
               {/* Elegant gold shimmer overlay on hover */}

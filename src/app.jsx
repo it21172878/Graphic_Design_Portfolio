@@ -1,5 +1,6 @@
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
+import Education from "./components/Education";
 import Technologies from "./components/Technologies";
 import Skills from "./components/Skills";
 import Projects from "./components/Projects";
@@ -22,6 +23,7 @@ const App = () => {
       <div className="container mx-auto px-8 relative z-10 ">
         <Navbar />
         <Hero />
+        <Education />
         <Technologies />
         <Skills />
         <Projects />
