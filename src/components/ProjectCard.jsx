@@ -105,6 +105,12 @@ const ProjectCard = ({ project }) => {
     }
   }, [hasColors, project?.image]);
 
+  const [isFlipped, setIsFlipped] = useState(false);
+
+  const handleFlipToggle = () => {
+    setIsFlipped(!isFlipped);
+  };
+
   return (
     <motion.div
       layout
@@ -156,8 +162,16 @@ const ProjectCard = ({ project }) => {
       </div>
 
       {/* 3D Flip Container for Content Area */}
-      <div className="relative [perspective:1200px] min-h-[240px]">
-        <div className="relative [transform-style:preserve-3d] transition-transform duration-700 ease-out group-hover:[transform:rotateY(180deg)] min-h-[240px]">
+      <div
+        className="relative [perspective:1200px] min-h-[240px] cursor-pointer"
+        onClick={handleFlipToggle}
+        onTouchStart={handleFlipToggle}
+      >
+        <div
+          className={`relative [transform-style:preserve-3d] transition-transform duration-700 ease-out min-h-[240px] ${
+            isFlipped ? "[transform:rotateY(180deg)]" : ""
+          } group-hover:[transform:rotateY(180deg)]`}
+        >
           {/* Front Side */}
           <div className="relative p-5 pb-0 [backface-visibility:hidden] min-h-[240px] flex flex-col">
             <h3 className="text-stone-100 text-lg font-semibold leading-tight mb-2 line-clamp-1">
