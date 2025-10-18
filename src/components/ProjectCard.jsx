@@ -105,12 +105,6 @@ const ProjectCard = ({ project }) => {
     }
   }, [hasColors, project?.image]);
 
-  const [isFlipped, setIsFlipped] = useState(false);
-
-  const handleFlipToggle = () => {
-    setIsFlipped(!isFlipped);
-  };
-
   return (
     <motion.div
       layout
@@ -161,17 +155,10 @@ const ProjectCard = ({ project }) => {
         <div className="absolute inset-0 ring-0" />
       </div>
 
-      {/* 3D Flip Container for Content Area */}
-      <div
-        className="relative [perspective:1200px] min-h-[240px] cursor-pointer"
-        onClick={handleFlipToggle}
-        onTouchStart={handleFlipToggle}
-      >
-        <div
-          className={`relative [transform-style:preserve-3d] transition-transform duration-700 ease-out min-h-[240px] ${
-            isFlipped ? "[transform:rotateY(180deg)]" : ""
-          } group-hover:[transform:rotateY(180deg)]`}
-        >
+      {/* 3D Flip Container for Content Area - Desktop only */}
+      <div className="relative [perspective:1200px] min-h-[240px]">
+        {/* Desktop: Flip on hover */}
+        <div className="hidden md:block relative [transform-style:preserve-3d] transition-transform duration-700 ease-out group-hover:[transform:rotateY(180deg)] min-h-[240px]">
           {/* Front Side */}
           <div className="relative p-5 pb-0 [backface-visibility:hidden] min-h-[240px] flex flex-col">
             <h3 className="text-stone-100 text-lg font-semibold leading-tight mb-2 line-clamp-1">
@@ -197,6 +184,23 @@ const ProjectCard = ({ project }) => {
               </p>
             )}
           </div>
+        </div>
+
+        {/* Mobile/Tablet: Show full details without flip */}
+        <div className="block md:hidden relative p-5 pb-0 min-h-[240px]">
+          <h3 className="text-stone-100 text-lg font-semibold leading-tight mb-2">
+            {project?.title}
+          </h3>
+          <div className="mb-3">
+            <span className="inline-block px-3 py-1 rounded-full text-[11px] font-semibold bg-gradient-to-r from-stone-900/80 via-stone-800/90 to-black/80 border border-stone-700 text-stone-300 shadow-sm tracking-wide">
+              {project.category}
+            </span>
+          </div>
+          {project?.description && (
+            <p className="text-stone-300/90 text-sm leading-relaxed pb-5">
+              {project.description}
+            </p>
+          )}
         </div>
       </div>
 
